@@ -1,1 +1,25 @@
-span.delItem {font-size:large; color:red}
+body {
+background-color: #c0c0ff;
+font-size:12px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+a {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #0000FF;
+}
+h1,h2,h3 {
+font-family: Apple "Apple Chancery", serif;
+}
+h1 {
+font-size: 24px;
+color: #006633;
+}
+h2 {
+font-size: 18px;
+color: #006633;
+}
+h3 {
+font-size: 16px;
+color: #006633;
+}
