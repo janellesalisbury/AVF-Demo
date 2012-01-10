@@ -83,18 +83,18 @@ $("#getXML").click(XML);
 
 });
 
-  //  if (typeof(localStorage) == 'undefined') {
-  //      alert('Your browser does not support HTML5 LocalStorage');
- //   } else getItems();
-    //    $('#additemform').submit(function() {
-    //    var newDate = new Date();
-    //    var itemId = newDate.getTime();
+  /*  if (typeof(localStorage) == 'undefined') {
+        alert('Your browser does not support HTML5 LocalStorage');
+    } else getItems();
+        $('#additemform').submit(function() {
+        var newDate = new Date();
+        var itemId = newDate.getTime();
 
-    //    var cat = $("#cat").val();
-     //   var name = $("#item-name").val();
-     //   var brand = $("#brand").val();
-     //   var size = $("#size").val();
-      /*  var color = $("#item-color").val();
+        var cat = $("#cat").val();
+        var name = $("#item-name").val();
+        var brand = $("#brand").val();
+        var size = $("#size").val();
+        var color = $("#item-color").val();
         var date = $("#mydate").val();
         var drycln = $("#dryclean").val();
         var notes = $("#notes").val();
@@ -105,10 +105,10 @@ $("#getXML").click(XML);
         localStorage.setItem(itemId, vals);
         alert('Storage Successful');
 
-    });*/
+    });
 
 
-/*function getItems() {
+function getItems() {
     var i = 0;
     var listelement = "";
     var dblen = localStorage.length-1;
@@ -162,11 +162,11 @@ function deleteData(id) {
 		alert("Item not removed!");
 
     }
-}*/
+}
 
 
 
-/*$("#submit").bind("click", validate);
+$("#submit").bind("click", validate);
 $("#view").bind("click", getData);
 $("#clear").bind("click", clearLocal);
 
