@@ -4,34 +4,32 @@
 		<title>Notification</title>
 	
 		<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-		<script type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
 		
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
 		function onDeviceReady(){
 		
+		}
+		
+		function alertDismissed(){
 		
 		}
 		
-		
+		function showAlert(){
+			navigator.notification.alert(
+				'Entry Granted' // message
+				alertDismissed, // callback
+				'Enjoy your Visit', // title
+				'Hello' // button name
+			
+			
+			);
+		}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		</script>
 	</head>
-
-
-
-
-
-
+	<body>
+		<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+	</body>
 </html>
