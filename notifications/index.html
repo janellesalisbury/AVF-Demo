@@ -21,15 +21,28 @@
 				'Entry Granted' // message
 				alertDismissed, // callback
 				'Enjoy your Visit', // title
-				'Hello' // button name
+				'Goodbye' // button name
 			
 			
 			);
 		}
 	
+		function onConfirm(){
+			alert('You selected enter' + button);
+		}
+		
+		function showConfirm(){
+			navigator.notification.confirm(
+			'You have entered', //message
+			onConfirm, //callback
+			'Enjoy', //title
+			'Goodbye' //buttonLabels
+		);
+	}
 		</script>
 	</head>
 	<body>
 		<p><a href="#" onclick="showAlert(); return false;">Show Alert</a></p>
+		<p><a href="#" onclick="showConfirm(); return false;">Show Confirm</a></p>
 	</body>
 </html>
