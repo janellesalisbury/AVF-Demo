@@ -29,39 +29,65 @@
 <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" />
 <link rel="stylesheet" href="css/style.css">
 
-<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
-<script type="text/javascript" src="main.js" charset="utf-8"></script>
 
-</head>
-<body>
-	<div>
-		<ul>
-			<li>
-				<div style="float: left; width: 75px">
-					Latitude
-				</div>
-				<input id="lat" type="text"/>
-			</li>
-			<li>
-				<div style="float: left; width: 75px">
-					Longitude
-				</div>
-				<input id="lon" type="text"/>
-			</li>
-				
-		</ul>
-	</div>
+<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+<script type="text/javascript" href="geo/bwh5.js"></script>
+<script type="text/javascript">
+
+	var t= newbwTable();
+	var= geo;
+
+	function getGeoLocation(){
+		try {
+		if (!!navigator.geolocation) return navigator.geolocation;
+		else return undefined;
+		}catch(e){
+			return undefined;
+			
+		}
+	}
+	function show_coords(position){
+		var lat= position.coords.latitude;
+		var lon= position.coords.longitude;
+		t.updateRow(0, [lat.toString(), lon.toString()]);
+		dispResults();
+		
+	function dispResults(){
+		element("results").innerHTML= t.getTableHTML();
 	
+	}
+	
+	
+	}
+	function init(){
+		if ((geo= getGeoLocation())){
+		statusMessage ("HTML5 Geolocation is supported");
+		t.setHeader([Latitude, Longitude]);
+		t.addRow(["&nbsp;", "&nbsp;" ])
+		}else{
+		statusMessage ("HTML5 Geolocation is not supported");
+		}
+		geo.getCurrentPostion(show_coords);
+	}
+	window.onload = function(){
+		init();
+	}
 
 
 
 </script>
+</head>
+<body>
 
+<div id= "content">
+	<h1>HTML5 Geolocation</h1>
+	
+	<p class="message" id="statusMessage"/>
+	<div id="results">
+	<!--results shown here-->
+	</div>
 
-
-
-
-
-
+</div>
+	
 </body>
 </html>
