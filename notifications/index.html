@@ -6,6 +6,14 @@
 		<script type="text/javascript" charset="utf-8" src="javascript/phonegap-1.3.0.js"></script>
 		<script type="text/javascript" charset="utf-8">
 		
+		var onBodyLoad
+		var onDeviceReady
+		var alertDismissed
+		var showAlert
+		var onConfirm
+		var showConfirm
+		var playBeep
+		var vibrate 
 		
 		function onBodyLoad()
 		{
@@ -26,13 +34,11 @@
 		
 		function showAlert(){
 			navigator.notification.alert(
-				'Entry Granted' // message
+				'Entry Granted', // message
 				alertDismissed, // callback
 				'Enjoy your Visit', // title
 				'Goodbye' // button name
-			
-			
-			);
+				);
 		}
 	
 		function onConfirm(){
