@@ -6,11 +6,19 @@
 		<script type="text/javascript" charset="utf-8" src="javascript/phonegap-1.3.0.js"></script>
 		<script type="text/javascript" charset="utf-8">
 		
-		document.addEventListener("deviceready", onDeviceReady, false);
 		
-		function onDeviceReady(){
+		function onBodyLoad()
+		{
 		
+			document.addEventListener("deviceready", onDeviceReady, false);
 		}
+		
+		/*When called, PhoneGap is ready */
+		function onDeviceReady()
+		{
+        	phoneGapReady.innerHTML = "PhoneGap is Ready";
+                    
+        }
 		
 		function alertDismissed(){
 		
@@ -28,16 +36,33 @@
 		}
 	
 		function onConfirm(){
-			alert('You selected enter' + button);
+			alert('You selected button' + button);
 		}
 		
 		function showConfirm(){
 			navigator.notification.confirm(
-			'You have entered', //message
-			onConfirm, //callback
-			'Enjoy', //title
-			'Goodbye' //buttonLabels
+				'You have entered', //message
+				onConfirm, //callback
+				'Enjoy', //title
+				'Goodbye' //buttonLabels
 		);
+		
+		function playBeep() {
+			navigator.notification.beep
+		}
+		
+		//vibrate for 3 seconds
+		function vibrate(){
+			navigator.notification.vibrate(3000);
+			alert('notification does not work on sim');
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 		</script>
 	</head>
