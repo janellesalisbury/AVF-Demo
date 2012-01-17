@@ -3,7 +3,7 @@
 	<head>
 		<title>Notification</title>
 	
-		<script type="text/javascript" charset="utf-8" src="javascript/phonegap-1.3.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../javascript/phonegap-1.3.0.js"></script>
 		<script type="text/javascript" charset="utf-8">
 		
 		var onBodyLoad
@@ -55,7 +55,7 @@
 		);
 		
 		function playBeep() {
-			navigator.notification.beep
+			navigator.notification.beep(1);
 		}
 		
 		//vibrate for 3 seconds
@@ -63,11 +63,10 @@
 			navigator.notification.vibrate(3000);
 			alert('notification does not work on sim');
 		}
-		
-		
+	}	
 		</script>
 	</head>
-	<body onload="onBodyLoad()">
+	<body onload= onBodyLoad()>
 
 					<DIV>
                         <header>
@@ -76,7 +75,7 @@
                                     <TD>
                                         <h2>Alert</h2>
                                     </TD>
-                                    <TD align="right"><a href="index.html" class="button">back</a>
+                                    <TD align="right"><a href="index.html" class="button">Previous</a>
                                     </TD>
                                 </TR>
                                 
@@ -115,7 +114,7 @@
 							</TABLE>
 						</DIV>
 
-						<DIV id="phoneGapReady" class="phoneGapReady">Starting PhoneGap….</DIV>
+						<DIV id="phoneGapReady" class="phoneGapReady">Starting PhoneGap...</DIV>
 
 </body>
 </html>
