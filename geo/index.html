@@ -13,8 +13,8 @@
 <!-- Mobile IE needs ClearType for smoothing fonts -->
 <meta http-equiv="cleartype" content="on">
 <style>
-	body {background-image:url(images/bg2.png)}
-	body {font: 14px/24px 'Apple Chancery', Arial, sans-serif; color: black; width 100%; margin: 20px; text-align:center}
+	body {background-image:url(geo/gears.png)}
+	body {font: 14px/24px 'Times New Roman', Arial, sans-serif; color: black; width 100%; margin: 20px; text-align:center}
 	header h1 {margin:0; width:100%; background: white; text-align:center; border:1px solid silver}
 	#mainpic {text-align:center; margin: 10px auto}
 	p {font-weight: 600}
@@ -29,71 +29,85 @@
 <script type="text/javascript"  src="../javascript/phonegap-1.3.0.js"></script>
 <script type="text/javascript">
 
+	function onBodyLoad() {
 	
-	document.addEventListener("deviceready", onDeviceReady, false);
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
 	
 	//phonegap is ready
 	function onDeviceReady() {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
 	
-	var t
-	var newbwTable
-	var geo
 
-	function getGeoLocation(){
+	function getLocation(){
 			try {
-			if (!!navigator.geolocation) return navigator.geolocation;
-			else return undefined;
-			}catch(e){
-					return undefined;
-
+				navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			}
-	}
-	function show_coords(position){
-		var lat= position.coords.latitude;
-		var lon= position.coords.longitude;
-		t.updateRow(0, [lat.toString(), lon.toString()]);
-		dispResults();
-
-	function dispResults(){
-	element("results").innerHTML= t.getTableHTML();
-
+			catch(error)
+			{
+			alert(error)
+			}
 		}
-
-
-	}
-	function init(){
-		if ((geo= getGeoLocation())){
-		statusMessage = "HTML5 Geolocation is supported";
-		t.setHeader([Latitude, Longitude]);
-		t.addRow(["&nbsp;", "&nbsp;" ])
-	}else{
-		statusMessage = "HTML5 Geolocation is not supported";
-	}
 	
-	geo.getCurrentPostion(show_coords);
-	}
+	function onSuccess(position) {
+                    var element = document.getElementById('geolocation');
+                    element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                    'Longitude: ' + position.coords.longitude + '<br />' +
+                    'Altitude: ' + position.coords.altitude + '<br />' +
+                    'Accuracy: ' + position.coords.accuracy + '<br />' +
+                    'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+                    'Heading: ' + position.coords.heading + '<br />' +
+                    'Speed: ' + position.coords.speed + '<br />' +
+                    'Timestamp: ' + new Date(position.timestamp) + '<br />';
+                }
+                
+                function onError(error) {
+                    alert('code: ' + error.code + '\n' +
+                          'message: ' + error.message + '\n');
+                }
 
-	window.onload = function(){
-			init();
-	}
 
-
-
+	
 </script>
 </head>
 <body>
+    <body onload="onBodyLoad()">
+        
+        <DIV class="phoneGapAPITitle">
+            <header>
+            <TABLE width="100%">
+                <TR>
+                    <TD>
+                        <h2>HTML5 Geolocation</h2>
+                    </TD>
+                    <TD align="right"><a href="index.html">back</a>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+            </header>
+        </DIV>
+        <DIV>
+            
+            <TABLE>
+                <TR>
+                    <TD>
+                        <button onclick="getLocation();">Get Geolocation</button> <br>
+                    </TD>
+                </TR>
+                
+                    
+                <TR>
+                    <TD id="geolocation" >
+                        
+                    </TD>
+                </TR>
+          </TABLE>
+       </DIV>
 
-<div id= "content">
-	<h1>HTML5 Geolocation</h1>
-	
-	<p class="message" id="statusMessage"/>
-	<div id="results">
-	<!--results shown here-->
-	</div>
 
-</div>
-	
+
 </body>
 </html>
