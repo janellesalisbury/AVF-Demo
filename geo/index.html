@@ -29,11 +29,17 @@
 <script type="text/javascript" href="geo/bwh5.js" src="../javascript/phonegap-1.3.0.js"></script>
 <script type="text/javascript">
 
-	var t 
-	var newbwTable
-	var geo
-
-	function getGeoLocation(){
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
+	
+	//phonegap is ready
+	function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+	
+	
+	
+		function getGeoLocation(){
 		try {
 		if (!!navigator.geolocation) return navigator.geolocation;
 		else return undefined;
