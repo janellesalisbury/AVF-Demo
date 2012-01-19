@@ -4,7 +4,7 @@
 
 <meta charset= "UTF-8">
 
-<title>Geolocation</title>
+<title>Camera</title>
 
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320"/>
@@ -31,32 +31,28 @@
 
  var pictureSource;   // picture source
  var destinationType; // sets the format of returned value 
-
+ var getPhoto;
+ var capturePhoto;
+ var capturePhotoEdit
+ 
     // Wait for PhoneGap to connect with the device
     //
     document.addEventListener("deviceready",onDeviceReady,false);
 
     // PhoneGap is ready to be used!
     //
-    function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
-    
+        
+    function onDeviceReady(){
     navigator.camera.getPicture(onSuccess, onFail, { quality: 50, 
-    destinationType: Camera.DestinationType.FILE_URI }); 
+    destinationType: Camera.DestinationType.FILE_URI 
+    }
 
-	function onSuccess(imageURI) {
-    	var image = document.getElementById('myImage');
-    	image.src = imageURI;
+	function cameraCallback(imageData){
+    var image = document.getElementById('myImage');
+    image.src = "data:image/jpeg;base64," + imageData;
 	}
 
-	function onFail(message) {
-    alert('Failed because: ' + message);
-	}
-
-
-    // Called when a photo is successfully retrieved
+	// Called when a photo is successfully retrieved
     //
     function onPhotoDataSuccess(imageData) {
       // Uncomment to view the base64 encoded image data
@@ -109,10 +105,16 @@
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
     }
-
-    // A button will call this function
-    //
-    function getPhoto(source) {
+    
+    { quality : 75, 
+  	  destinationType : Camera.DestinationType.DATA_URL, 
+  	  sourceType : Camera.PictureSourceType.CAMERA, 
+  	  allowEdit : true,
+  	  encodingType: Camera.EncodingType.JPEG,
+  	  targetWidth: 100,
+  	  targetHeight: 100 };
+  	  
+  	  function getPhoto(source) {
       // Retrieve image file location from specified source
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
@@ -124,6 +126,10 @@
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+
+
+    // A button will call this function
+    //
 
     </script>
   </head>
