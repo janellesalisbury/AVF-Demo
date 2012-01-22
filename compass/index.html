@@ -26,25 +26,24 @@
 
     // The watch id references the current `watchHeading`
     var watchID = null;
+	// Update compass every 3 seconds
+    var options = { frequency: 3000 };
+    
 
-    // Wait for PhoneGap to load
-    //
+
+
+	function onDeviceReady(){
     document.addEventListener("deviceready", onDeviceReady, false);
-
+	}
     // PhoneGap is ready
     //
     function onDeviceReady() {
-        startWatch();
+        startWatch(watchID = navigator.compass.watchHeading(onSuccess, onError, options));
     }
-
-    // Start watching the compass
-    //
-    function startWatch() {
 
         // Update compass every 3 seconds
         var options = { frequency: 3000 };
 
-        watchID = navigator.compass.watchHeading(onSuccess, onError, options);
     }
 
     // Stop watching the compass
