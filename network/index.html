@@ -36,7 +36,7 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
-    	navigator.network.connection.type
+    phoneGapReady.innerHTML = "PhoneGap is ready";
         checkConnection();
     }
 
@@ -53,6 +53,8 @@
         states[Connection.NONE]     = 'No network connection';
 
         alert('Connection type: ' + states[networkState]);
+         var element = document.getElementById('showNetwork');
+         element.innerHTML = 'Connection type: ' + stat
     }
 
     </script>
