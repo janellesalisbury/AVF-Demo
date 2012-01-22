@@ -26,22 +26,21 @@
 
     // The watch id references the current `watchHeading`
     var watchID = null;
-	// Update compass every 3 seconds
-    var options = { frequency: 3000 };
-    
-
-
-	function onDeviceReady() {
+    function onBodyLoad()
+    {
     	document.addEventListener("deviceready", onDeviceReady, false);
+    }
+    
+    function onDeviceReady()
+    {
+		phoneGapReady.innerHTML = "PhoneGap is Ready";
 	}
-    // PhoneGap is ready
-    //
-    function startWatch() {
-    	startWatch(navigator.compass.watchHeading(onSuccess, onError, options));
+	
+     function startWatch() {
+     	var options = { frequency: 3000 };
+     		watchID= navigator.compass.watchHeading(onSuccess, onError, options);
     		
-    	}
-        
-    }    
+    	}   
 
     // Stop watching the compass
     
@@ -62,14 +61,24 @@
     // onError: Failed to get the heading
     
     function onError() {
-        alert('onError!');
+        alert('Error!');
     }
 
     </script>
   </head>
-  <body>
-    <div id="heading">Waiting for heading...</div>
-    <button onclick="startWatch();">Start Watching</button>
-    <button onclick="stopWatch();">Stop Watching</button>
-  </body>
+  <body onload="onBodyLoad()">
+  <section role="main">
+             
+                    <div id="currentHeading" align="center">Waiting for heading...</div>
+
+                    <p align="center"><button onclick="startWatch();">Start Watching</button></p>
+                    <p align="center"><button onclick="stopWatch();">Stop Watching</button></p>
+
+                    <div id="watchResult" align="center">
+                    </div>
+        </section>
+		<footer role="contentinfo">
+        <DIV id="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+        </footer>
+    </body>
 </html>
