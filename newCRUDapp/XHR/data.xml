@@ -1,0 +1,42 @@
+<?xml version= "1.0" encoding="UTF-8"?>
+
+
+
+<items>
+	<item>
+		<company>National Grid</company>
+		<account>15136766253</account>
+		<payment>Minimium</payment>
+		<due>12-10-10</due>
+	</item>
+	<item>
+		<company>Time Warner</company>
+		<account>099869009</account>
+		<payment>Minimium</payment>
+		<due>12-10-10</due>
+	</item>
+	<item>
+		<company>Verizon</company>
+		<account>3152121923</account>
+		<payment>Total</payment>
+		<due>12-10-10</due>
+	</item>
+	<item>
+		<company>Village Taxes 2012</company>
+		<account>15Walnut</account>
+		<payment>total/pymt1</payment>
+		<due>12-10-12</due>
+	</item>
+	<item>
+		<company>Capital One</company>
+		<account>2345676787941000</account>
+		<payment>Minimium</payment>
+		<due>12-10-10</due>
+	</item>
+	<item>
+		<company>Harleysville  Homeowners</company>
+		<account>RX456Y78UP</account>
+		<payment>Installment 1</payment>
+		<due>12-10-10</due>
+	</item>
+</items>
