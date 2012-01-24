@@ -29,12 +29,12 @@
                 <h1>Bill Categories</h1>
             </div>
             <div data-role="content">
-                <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Clothing...">
-                    <p align=center><img src="images/JC-logo3.png" width=90%></p>
+                <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search Bills...">
+                    <p align=center><img src="images/bills.png" width=90%></p>
                 </ul> 
-                <p align=center>Add your clothing items and keep a detailed log.</p>
-                <p><a href="#additem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Clothing Item</a></p>
-                <p><a href="#inv-lists" data-role="button" data-icon="arrow-r" data-iconpos="right">View Inventory</a> </p>
+                <p align=center>Add your monthly bills and keep records of your expenses.</p>
+                <p><a href="#additem" data-role="button" data-icon="arrow-r" data-iconpos="right">Add Bill</a></p>
+                <p><a href="#inv-lists" data-role="button" data-icon="arrow-r" data-iconpos="right">View Bills</a> </p>
                 <p><a href="#ajaxpage" data-role="button" data-icon="arrow-r" data-iconpos="right">Ajax Project</a> </p>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="a">
@@ -50,7 +50,7 @@
             </div>
             <div data-role="content"
                <ul id="ajaxtest" data-role="listview" data-inset="true" data-theme="f">
-               		<p align=center><img src="images/JC-logo3.png" width=60%></p>
+               		<p align=center><img src="images/bills.png" width=60%></p>
                 </ul>
                 <p><a href= "#" id= "getJSON" data-role="button" data-icon="arrow-r" data-iconpos="right">JSON</a></p>
                 <p><a href= "#" id= "getXML" data-role="button" data-icon="arrow-r" data-iconpos="right">XML</a></p>
@@ -75,12 +75,12 @@
                 <h1>Shoes</h1>
             </div>
             <div data-role="content">
-                <p align=center><img src="images/JC-logo3.png" width=60%></p>
-                <p><a href="#cable"  data-role="button" data-icon="arrow-r" data-iconpos="right">Tops</a></p>
-                <p><a href="#ele"  data-role="button" data-icon="arrow-r" data-iconpos="right">Bottoms</a></p>
-                <p><a href="#jewelry" data-role="button" data-icon="arrow-r" data-iconpos="right"> Jewelry</a></p>
-                <p><a href="#handbags"  data-role="button" data-icon="arrow-r" data-iconpos="right">Handbags</a></p>
-                <p><a href="#shoes"  data-role="button" data-icon="arrow-r" data-iconpos="right">Shoes</a> </p>
+                <p align=center><img src="images/bills.png" width=60%></p>
+                <p><a href="#cable"  data-role="button" data-icon="arrow-r" data-iconpos="right">Cable</a></p>
+                <p><a href="#electric"  data-role="button" data-icon="arrow-r" data-iconpos="right">Electric</a></p>
+                <p><a href="#mobile" data-role="button" data-icon="arrow-r" data-iconpos="right"> Mobile Phones</a></p>
+                <p><a href="#taxes"  data-role="button" data-icon="arrow-r" data-iconpos="right">Taxes</a></p>
+                <p><a href="#creditcards"  data-role="button" data-icon="arrow-r" data-iconpos="right">Credit Cards</a> </p>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="a">
                 <div data-role="footer" data-position="fixed" data-theme="a">
@@ -176,67 +176,44 @@
         <div data-role="page" id="additem" data-add-back-btn="true" data-theme="f">
             <div data-role="header" data-position="fixed">
 
-                <h1>Add Clothing Item</h1>
+                <h1>Add Bills</h1>
             </div>
             <div data-role="content">
-            <p align=center><img src="images/JC-logo3.png" width=60%></p>
+            <p align=center><img src="images/money.png" width=60%></p>
                 <form action="" method="post" id="additemform">
                     <div data-role="fieldcontain">
-                        <label for="cat">Catagory:</label>
+                        <label for="cat">Category:</label>
                         <select name="cat" id="cat" class="required">
-                        <option data-placeholder="true">Pick A Catagory</option>
-                        <option value="tops">Tops</option>
-                        <option value="bottoms">Bottoms</option>
-                        <option value="jewelry">Jewelry</option>
-                        <option value="handbags">Handbags</option>
-                        <option value="shoes">Shoes</option>
+                        <option data-placeholder="true">Pick A Category</option>
+                        <option value="cable">Cable</option>
+                        <option value="electric">Electric</option>
+                        <option value="mobile">Mobile Phones</option>
+                        <option value="taxes">Taxes</option>
+                        <option value="creditcards">Credit Cards</option>
                         </select>
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="item-name">Item Name:</label>
-                            <input type="text" name="item-name" id="item-name" class="required" placeholder="Name of Item" onfocus="if(this.attr('placeholder')=='Name of Item') this.attr('placeholder')='';">
+                        <label for="item-name">Company:</label>
+                            <input type="text" name="company-name" id="company-name" class="required" placeholder="Name of Company" onfocus="if(this.attr('placeholder')=='Name of Company') this.attr('placeholder')='';">
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="brand">Brand:</label>
-                            <input type="text" name="brand" id="brand" placeholder="What Brand" onfocus=console.log(this)"if(this.attr('placeholder')=='What Brand') this.attr('placeholder')='';">
+                        <label for="brand">Account Number:</label>
+                            <input type="text" name="account" id="account" placeholder="Account Number" onfocus=console.log(this)"if(this.attr('placeholder')=='Account Number') this.attr('placeholder')='';">
                     </div>
                     <div data-role="fieldcontain">
-                        <label for="size">Size:</label>
-                        <select name="size" id="size">
-                        <option data-placeholder="true">Select Size</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="No Size">No Size</option>
-                        </select>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <label for="item-color">Color:</label>
-                        <select name="item-color" id="item-color" class="required">
-                        <option data-placeholder="true">Please Select Color:</option>
-                        <option value="red">Red</option>
-                        <option value="orange">Orange</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
-                        <option value="black">Black</option>
-                        <option value="white">White</option>
-                        <option value="other">Other</option>
+                        <label for="size">Payment Amount:</label>
+                        <select name="payment" id="payment">
+                        <option data-placeholder="true">Select Payment</option>
+                        <option value="Minimum">Minimum</option>
+                        <option value="Other">Other</option>
+                        <option value="Total">Total Balance</option>
                         </select>
                     </div>
 
                     <div data-role="fieldcontain">
-                        <label for="mydate">Date Purchased:</label>
+                        <label for="mydate">Due Date:</label>
                         <input type="date" name="mydate" id="mydate" data-role="datebox" data-options='{"mode":"flipbox"}'>
                     </div>
-                    <div data-role="fieldcontain">
-                        <label for="dryclean">Dry Clean Only?:</label>
-                            <select name="slider" id="dryclean" data-role="slider">
-                            <option value="No">No</option>
-                            <option value="Yes">Yes</option>
-                            </select>
-                    </div>
-
                     <div data-role="fieldcontain">
                         <label for="notes">Notes:</label>
                         <textarea id="notes" placeholder="add note" onfocus="if(this.attr('placeholder')=='add note') this.attr('placeholder')='';"></textarea>
