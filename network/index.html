@@ -58,12 +58,20 @@
 
         alert('Connection type: ' + states[networkState]);
          var element = document.getElementById('showNetwork');
-         element.innerHTML = 'Connection type: ' + stat
+         element.innerHTML = 'Connection type: ' + states[networkState];
     }
 
     </script>
   </head>
   <body>
-    <p>A dialog box will report the network state.</p>
+  <section role="main">
+            <div id="showNetwork" align="center">
+            	</div>
+         	<p align="center">A dialog box will report Network connection</p>
+  </section>
+  <footer role="contentinfo">
+			<p><a href="index.html">Home Page</a></p>
+  <DIV id="phoneGapReady">waiting for PhoneGap to initialize....</DIV>
+  </footer>
   </body>
 </html>
