@@ -145,12 +145,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		// Populate the form fields with the current local storage values.
 		$("groups").value = item.group[1];
-		$("name").value = item.name[1];
-		$("brand").value = item.brand[1];
-		$("color").value = item.color[1];
-		if(item.dryClean[1]==="Yes"){
-			$("dryCleanOnly").setAttribute("checked", "checked");
-		}
+		$("company").value = item.company[1];
+		$("account").value = item.account[1];
+		$("payment").value = item.payment[1];
 		$("notes").value = item.notes[1];
 		
 		//Remove the initial listener from the input 'save item' button.
@@ -193,16 +190,16 @@ window.addEventListener("DOMContentLoaded", function(){
 	function validate(e){
 	// Define elements we want to check
 		var getGroup = $("groups");
-		var getName = $("name");
-		var getBrand = $("brand");
-		var getColor = $("color");
+		var getCompany = $("company");
+		var getAccount = $("account");
+		var getPayment = $("payment");
 		
 		// reset Error Messages
 		errMsg.innerHTML = "";
 		getGroup.style.border = "1px solid black";
-		getName.style.border = "1px solid black";
-		getBrand.style.border = "1px solid black";
-		getColor.style.border = "1px solid black";
+		getCompany.style.border = "1px solid black";
+		getAccount.style.border = "1px solid black";
+		getPayment.style.border = "1px solid black";
 		
 		//Get error messages
 		var messageAry = [];
@@ -212,23 +209,23 @@ window.addEventListener("DOMContentLoaded", function(){
 			getGroup.style.border = "1px solid red";
 			messageAry.push(groupError);
 		}	
-		//Name
-		if(getName.value === ""){
-			var nameError = "Please enter a name";
-			getName.style.border = "1px solid red";
-			messageAry.push(nameError);
+		//Company
+		if(getCompany.value === ""){
+			var companyError = "Please enter a company";
+			getCompany.style.border = "1px solid red";
+			messageAry.push(companyError);
 		}	
-		//Brand 
-		if(getBrand.value === ""){
-			var brandError = "Please enter a brand";
-			getBrand.style.border = "1px solid red";
-			messageAry.push(brandError);
+		//Account
+		if(getAccount.value === ""){
+			var accountError = "Please enter a account";
+			getAccount.style.border = "1px solid red";
+			messageAry.push(accountError);
 		}
-		//Color
-		if(getColor.value === ""){
-			var colorError = "Please enter a color";
-			getColor.style.border = "1px solid red";
-			messageAry.push(colorError);
+		//Payment
+		if(getPayment.value === ""){
+			var paymentError = "Please enter a payment";
+			getPayment.style.border = "1px solid red";
+			messageAry.push(paymentError);
 		}
 		//If there are errors, display on the screen.
 		if(messageAry.length >= 1){
@@ -247,8 +244,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 //Variable defaults
-	var clothingCategories = ["--Choose a Category--", "Shoes", "Tops", "Bottoms", "Jewelry", "Handbags"],
-		dryCleanValue = "No",
+	var billCategories = ["--Choose a Category--", "Cable", "Electric", "Mobile", "Taxes", "Credit Cards"],
 		errMsg=$("errors");
 		;
 	makeCats();

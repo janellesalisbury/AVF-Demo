@@ -6,18 +6,16 @@
 function autoFillData(){
 		var json = {
 			"contact1":{
-				"group":["Group:", "Shoes"],
--				"name":["Name:", "Janelle"],
--				"brand":["Brand:", "BCBG"],
--				"color":["Color:", "Black"],
--				"notes":["Notes:", "Stored"]
+				"company":["Company:", "Time Warner"],
+				"account":["Account:", "157384759"],
+				"payment":["Payment:", "Minimum"],
+				"notes":["Notes:", "Paid"]
 			},
 			"contact2":{
-				"group":["Group:", "Tops"],
--				"name":["Name:", "T-shirt"],
--				"brand":["Brand:", "Aero"],
--				"color":["Color:", "Black"],
-				"notes":["Notes:", "Drawer 3"]
+				"company":["Group:", "Tops"],
+				"account":["Name:", "T-shirt"],
+				"payment":["Brand:", "Aero"],
+				"notes":["Notes:", "Drawer 2"]
 		    },		
 		    "contact3":{
 				"group":["Group:", "Pants"],
