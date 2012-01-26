@@ -16,121 +16,84 @@
 </style>
 
 
-		<title>Notification</title>
+		<title>Notifications</title>
 	
 		<script type="text/javascript" charset="utf-8" src="phonegap-1.3.0.js"></script>
 		<script type="text/javascript" charset="utf-8">
 		
-		var onBodyLoad
-		var onDeviceReady
-		var alertDismissed
-		var showAlert
-		var onConfirm
-		var showConfirm
-		var playBeep
-		var vibrate
-		var onBodyLoad 
-		
-		function onBodyLoad()
-		{
-		
-			document.addEventListener("deviceready", onDeviceReady, false);
-		}
-		
-		/*When called, PhoneGap is ready */
-		function onDeviceReady()
-		{
-        	phoneGapReady.innerHTML = "PhoneGap is Ready";
+			
+                
+                function onBodyLoad()
+                {
+                    document.addEventListener("deviceready",onDeviceReady,false);
+                }
+                
+                /* When this function is called, PhoneGap has been initialized and is ready */
+                function onDeviceReady()
+                {
+                    phoneGapReady.innerHTML = "PhoneGap is Ready";
                     
-        }
-		
-		function alertDismissed(){
-		
-		}
-		
-		function showAlert(){
-			navigator.notification.alert(
-				'Entry Granted', // message
-				alertDismissed, // callback
-				'Enjoy your Visit', // title
-				'Goodbye' // button name
-				);
-		}
-	
-		function onConfirm(button){
-			alert('You selected button' + button);
-		}
-		
-		function showConfirm(){
-			navigator.notification.confirm(
-				'You have entered', //message
-				onConfirm, //callback
-				'Enjoy', //title
-				'Goodbye' //buttonLabels
-		);
-		
-		function playBeep() {
-			navigator.notification.beep(1);
-		}
-		
-		//vibrate for 3 seconds
-		function vibrate(){
-			navigator.notification.vibrate(3000);
-			alert('notification does not work on sim');
-		}
-	}	
-		</script>
-	</head>
-	<body onload= onBodyLoad()>
+                }
+                
+                // alert dialog dismissed
+                function alertDismissed() {
+                    // do something
+                }
+                
+                // Show a custom alert
+                //
+                function showAlert() {
+                    navigator.notification.alert(
+                                                 'You pressed Alert!', // message
+                                                 alertDismissed, // callback
+                                                 'Alert Demo', // title
+                                                 'Done' // buttonName
+                                                 );
+                }
+                
+                // process the confirmation dialog result
+                function onConfirm(button) {
+                    alert('You selected button ' + button);
+                }
+                
+                // Show a custom confirmation dialog
+                //
+                function showConfirm() {
+                    navigator.notification.confirm(
+                                                   'You pressed Confirm!', // message
+                                                   onConfirm, // callback to invoke with index of button pressed
+                                                   'Confirm Demo', // title
+                                                   'Restart,Exit' // buttonLabels
+                                                   );
+                }
+                
+                function playBeep() {
+                    navigator.notification.beep(3);
+                }
+                
+                // Vibrate for 2 seconds
+                //
+                function vibrate() {
+                    navigator.notification.vibrate(2000);
+                    alert('vibrate does not work on Sim');
+                }
+                
+                
+                
+                </script>
+            </head>
+            <body onload="onBodyLoad()">
+             <h1>Try alerts</h1>
 
-					<DIV>
-                        <header>
-                            <TABLE width="100%">
-                                <TR>
-                                    <TD>
-                                        <h2>Notifications</h2>
-                                    </TD>
-                                    <TD align="center"><a href="http:/janellesalisbury.github.com/AVF-Demo" class="button">Previous</a>
-                                    </TD>
-                                </TR>
-                                
-                            </TABLE>
-                        </header>
-								</DIV>
-								<DIV>
+				<p align="center"><button onclick="showAlert();">Try Alert</button></p>
+				<p align="center"><button onclick="showConfirm();">Try Confirm</button></p>
+				<p align="center"><button onclick="playBeep();">Play Beep</button></p>
+				<p align="center"><button onclick="vibrate();">Vibrate</button></p>
+				<p><a href="index.html">Home Page</a></p>
+				<p id="phoneGapReady" class="phoneGapReady">waiting for PhoneGap to initialize....</p>
 
-									<TABLE>
-										<TR>
-											<TD>
-											<button onclick="showAlert();">Show Alert</button> <br>
-											</TD>
-										</TR>
-										<TR>
-											<TD>
-											<button onclick="showConfirm();">Show Confirm</button> <br>
-											</TD>
-										</TR>
-                            <TR>
-                                <TD>
-                                 <button onclick="playBeep();">Hear Beep</button> <br>
-                                </TD>
-                            </TR>
-                            <TR>
-                                <TD>
-                                  <button onclick="vibrate();">Feel Vibrate</button> <br>
-                                </TD>
-                            </TR>
-                            <TR>
-										<TD id="results" >
+			</body>
+	</html>
 
-										</TD>
-									</TR>
 
-							</TABLE>
-						</DIV>
 
-						<DIV id="phoneGapReady" class="phoneGapReady">Starting PhoneGap...</DIV>
-
-</body>
-</html>
-	
