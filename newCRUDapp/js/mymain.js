@@ -14,7 +14,7 @@ function XML(){
 				var xmlpayment= $(this).find("payment").text();
 				var xmldue= $(this).find("due").text();
 				var listelement = '<li>' +
-           			 '<h3> Comapny: ' + xmlcompany + '</h3>' +
+           			 '<h3> Company: ' + xmlcompany + '</h3>' +
            			 '<p> Account: ' + xmlaccount + '&nbsp;&nbsp; &nbsp;&nbsp; Due: ' +xmldue + '</p>' +
             		 '<p> Payment: ' + xmlpayment +  '</p>' +
            			 '<hr/></li>';
@@ -46,7 +46,7 @@ function JSON(){
 				var listelement= '<li>' +
            			 '<h3> Company: ' + jsoncompany + '</h3>' +
            			 '<p> Account: ' + jsonaccount + '&nbsp;&nbsp; &nbsp;&nbsp; Payment: ' +jsonpayment + '</p>' +
-            		 '<p> Due: ' + jsondue + ' &nbsp;&nbsp; &nbsp;&nbsp; Date Bought: ' + jsondate + '</p>' +
+            		 '<p> Due: ' + jsondue +  '</p>' +
             		 '<hr/></li>';
             		 
            		$(listelement).appendTo("#json");
