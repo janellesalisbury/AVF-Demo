@@ -43,12 +43,12 @@
                 // Show a custom alert
                 //
                 function showAlert() {
-                    navigator.notification.alert(
-                                                 'You pressed Alert!', // message
-                                                 alertDismissed, // callback
-                                                 'Alert Demo', // title
-                                                 'Done' // buttonName
-                                                 );
+                    alert(
+                          'You pressed Alert!', // message
+                           alertDismissed, // callback
+                          'Alert Demo', // title
+                          'Done' // buttonName
+                         );
                 }
                 
                 // process the confirmation dialog result
@@ -59,12 +59,12 @@
                 // Show a custom confirmation dialog
                 //
                 function showConfirm() {
-                    navigator.notification.confirm(
-                                                   'You pressed Confirm!', // message
-                                                   onConfirm, // callback to invoke with index of button pressed
-                                                   'Confirm Demo', // title
-                                                   'Restart,Exit' // buttonLabels
-                                                   );
+                    alert(
+                          'You pressed Confirm!', // message
+                           onConfirm, // callback to invoke with index of button pressed
+                          'Confirm Demo', // title
+                          'Restart,Exit' // buttonLabels
+                         );
                 }
                 
                 function playBeep() {
