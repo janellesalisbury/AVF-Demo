@@ -66,15 +66,16 @@
                           'Restart,Exit' // buttonLabels
                          );
                 }
+                function playBeep(){
+                	navigator.notification.playBeep();
+                	playBeep(200);
                 
-                function playBeep() {
-                    navigator.notification.beep(3);
                 }
                 
                 // Vibrate for 2 seconds
                 //
                 function vibrate() {
-                    navigator.notification.vibrate(2000);
+                    vibrate(200);
                     alert('vibrate does not work on Sim');
                 }
                 
