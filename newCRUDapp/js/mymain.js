@@ -9,7 +9,7 @@ function XML(){
 			alert("Data successfully loaded");
 			console.log(data, status);
 			$(data).find("item").each(function(){
-				var xmlcompant= $(this).find("company").text();
+				var xmlcompany= $(this).find("company").text();
 				var xmlaccount= $(this).find("account").text();
 				var xmlpayment= $(this).find("payment").text();
 				var xmldue= $(this).find("due").text();
@@ -39,12 +39,12 @@ function JSON(){
 			console.log(data, status);
 			$.each(data.items, function(index,value){
 				console.log(value);
-				var jsoncompany= (value.company);
+				var jsonname= (value.name);
 				var jsonaccount= (value.account);
 				var jsonpayment= (value.payment);
 				var jsondue= (value.due);
 				var listelement= '<li>' +
-           			 '<h3> Company: ' + jsoncompany + '</h3>' +
+           			 '<h3> Name: ' + jsonname+ '</h3>' +
            			 '<p> Account: ' + jsonaccount + '&nbsp;&nbsp; &nbsp;&nbsp; Payment: ' +jsonpayment + '</p>' +
             		 '<p> Due: ' + jsondue +  '</p>' +
             		 '<hr/></li>';
