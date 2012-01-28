@@ -47,34 +47,22 @@
         checkConnection();
     }
     
-    function checkOnline(){
-    setTimeout("doOnlineCheck()", 20000);
-}
+   function checkConnection() {
+		var networkState = navigator.network.connection.type;
 
-function doOnlineCheck(){
-    var submitURL = $("#base_path").val() + "index.php/menu/online";//if the server can be reached it returns 1, other wise it times out
-    $.ajax({
-        url     : submitURL     ,
-        type    : 'post'        ,
-        dataType: 'msg'         ,
-        timeout : 5000          ,
-        success : function(msg){
-            if(msg==1){
-                $("#online").addClass("online");
-                $("#online").removeClass("offline");
-            }else{
-                $("#online").addClass("offline");
-                $("#online").removeClass("online");
-            }
-            checkOnline();
-        }   ,
-        error   : function(){
-            $("#online").addClass("offline");
-            $("#online").removeClass("online");
-            checkOnline();
-        }
-    });
-}
+		var states = {};
+			states[Connection.UNKNOWN] = 'Unknown connection';
+			states[Connection.ETHERNET] = 'Ethernet connection';
+			states[Connection.WIFI] = 'WiFi connection';
+			states[Connection.CELL_2G] = 'Cell 2G connection';
+			states[Connection.CELL_3G] = 'Cell 3G connection';
+			states[Connection.CELL_4G] = 'Cell 4G connection';
+			states[Connection.NONE] = 'No network connection';
+
+			alert('Connection type: ' + states[networkState]);
+	                var element = document.getElementById('showNetwork');
+                    element.innerHTML = 'Connection type: ' + states[networkState];
+			}
 
 
         </script>
